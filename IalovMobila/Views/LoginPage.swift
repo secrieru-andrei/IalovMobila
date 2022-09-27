@@ -9,41 +9,50 @@ import SwiftUI
 
 struct LoginForm: View {
     @Environment (\.dismiss) var dismiss
-    @Binding var loginEmail: String
-    @Binding var password: String
+    @ObservedObject var viewModel: LoginViewModel
     var body: some View {
         NavigationView {
             ZStack {
-                
                 VStack{
                     Spacer(minLength: 150)
                     VStack{
                         
-                        TextField("Email Address", text: $loginEmail)
-                            .padding()
-                            .overlay(RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.init("lightBlue"), lineWidth: 1)
-                                .shadow(color: .gray, radius: 2, x: 1, y: 1))
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                         
-                        SecureField("Password", text:  $password)
+                        TextField("Email Address", text: $viewModel.email)
                             .padding()
                             .overlay(RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.init("lightBlue"), lineWidth: 1)
                                 .shadow(color: .gray, radius: 2, x: 1, y: 1))
                             .clipShape(RoundedRectangle(cornerRadius: 20))
                         
+                        SecureField("Password", text:  $viewModel.password)
+                            .padding()
+                            .overlay(RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.init("lightBlue"), lineWidth: 1)
+                                .shadow(color: .gray, radius: 2, x: 1, y: 1))
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                        
+                        if viewModel.errorHandler != nil {
+                            if let error = viewModel.errorHandler{
+                                Text(error)
+                                    .foregroundColor(.red)
+                                    .lineLimit(2)
+                                
+                            }
+                        }
+       
                         Button {
                             
                         } label: {
                             Text("Forgot Password?")
-                        }.frame(alignment: .leading)
+                        }
                     }
                     .padding(.trailing)
                     .padding(.leading)
                     VStack{
                         
                         Button {
+                            viewModel.signIn(withEmail: viewModel.email,
+                                             withPassword: viewModel.password)
                             
                         } label: {
                             Text("Login")
@@ -60,7 +69,7 @@ struct LoginForm: View {
                         .padding()
                         .shadow(color: .black, radius: 1, x: 1, y: 1)
                     }
-                
+                    
                     HStack {
                         Rectangle()
                             .frame(height: 1)
@@ -128,38 +137,43 @@ struct LoginForm: View {
 }
 
 struct RegisterForm: View {
-    @Binding var loginEmail: String
-    @Binding var loginPass: String
-    @Binding var passConf: String
+    @ObservedObject var viewModel = LoginViewModel()
     @Environment (\.dismiss) var dismiss
     var body: some View {
         NavigationView {
             ZStack {
-                
                 VStack{
                     Spacer(minLength: 150)
                     VStack{
                         
-                        TextField("Email Address", text: $loginEmail)
-                            .padding()
-                            .overlay(RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.init("lightBlue"), lineWidth: 1)
-                                .shadow(color: .gray, radius: 2, x: 1, y: 1))
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                            
-                        SecureField("Password", text:  $loginPass)
+                        TextField("Email Address", text: $viewModel.email)
                             .padding()
                             .overlay(RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.init("lightBlue"), lineWidth: 1)
                                 .shadow(color: .gray, radius: 2, x: 1, y: 1))
                             .clipShape(RoundedRectangle(cornerRadius: 20))
                         
-                        SecureField("Confirm Password", text:  $passConf)
+                        SecureField("Password", text:  $viewModel.password)
                             .padding()
                             .overlay(RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.init("lightBlue"), lineWidth: 1)
                                 .shadow(color: .gray, radius: 2, x: 1, y: 1))
                             .clipShape(RoundedRectangle(cornerRadius: 20))
+                        
+                        SecureField("Confirm Password", text:  $viewModel.passConfirmation)
+                            .padding()
+                            .overlay(RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.init("lightBlue"), lineWidth: 1)
+                                .shadow(color: .gray, radius: 2, x: 1, y: 1))
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                        
+                        if viewModel.errorHandler != nil {
+                            if let error = viewModel.errorHandler{
+                                Text(error)
+                                    .foregroundColor(.red)
+                                    .lineLimit(2)
+                            }
+                        }
                         
                     }
                     .padding(.trailing)
@@ -168,6 +182,9 @@ struct RegisterForm: View {
                         
                         Button {
                             
+                            viewModel.signUp(withEmail: viewModel.email,
+                                             withPassword: viewModel.password,
+                                             withPassConfirmation: viewModel.passConfirmation)
                         } label: {
                             Text("Register")
                                 .foregroundColor(.primary)
@@ -182,7 +199,7 @@ struct RegisterForm: View {
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                         .padding(.top)
                         .shadow(color: .black, radius: 1, x: 1, y: 1)
-      
+                        
                     }
                     
                     HStack {
@@ -252,98 +269,107 @@ struct RegisterForm: View {
     }
 }
 
+// Main login page view witch include: logo, company name, slogan, buttons for singin or singup
 struct LoginPage: View {
-    @State private var loginEmail = ""
-    @State private var password = ""
-    @State private var passConf = ""
-    @State private var showLoginForm = false
-    @State private var showRegisterForm = false
+    //Proprietes
+    @StateObject var viewModel = LoginViewModel()
+    @State  var status = UserDefaults.standard.value(forKey: "isLogedIn") as? Bool ?? false
     var body: some View {
-        ZStack {
-            Color.white.ignoresSafeArea()
-            //Logo
-            VStack {
-                
+        if status {
+            MainView()
+        } else {
+            
+            ZStack {
+                Color.white.ignoresSafeArea()
                 VStack {
-                    Image("loginLogo2")
-                        .resizable()
-                        .padding()
-                        .aspectRatio(contentMode: .fit)
+                    VStack {
+                        Image("loginLogo2")
+                            .resizable()
+                            .padding()
+                            .aspectRatio(contentMode: .fit)
+                        
+                        
+                        Text("IalovMobila")
+                            .foregroundColor(.black)
+                            .font(.custom("Avenir Next", size: 30))
+                            .bold()
+                            .shadow(color: .gray, radius: 1, x: 1, y: 1)
+                        Text("comfort in your home")
+                            .italic()
+                            .foregroundColor(.black)
+                            .font(.custom("Avenir Next", size: 17))
+                    }
+                    .padding()
                     
-                    
-                    Text("IalovMobila")
-                        .foregroundColor(.black)
-                        .font(.custom("Avenir Next", size: 30))
-                        .bold()
-                        .shadow(color: .gray, radius: 1, x: 1, y: 1)
-                    Text("comfort in your home")
-                        .italic()
-                        .foregroundColor(.black)
-                        .font(.custom("Avenir Next", size: 17))
-                }
-                .padding()
-                
-                
-                //Buttons
-                Spacer()
-                VStack {
-                    HStack(spacing:15) {
-                        Button(action: {
-                            showLoginForm = true
-                        }) {
-                            Text("Sing In")
-                                .bold()
-                                .foregroundColor(.primary)
-                                .padding()
-                                .font(.custom("Avenir Next", size: 17, relativeTo: .title3))
+                    //Buttons
+                    Spacer()
+                    VStack {
+                        HStack(spacing:15) {
+                            Button(action: {
+                                viewModel.Clear()
+                                viewModel.showLoginForm = true
+                            }) {
+                                Text("Sing In")
+                                    .bold()
+                                    .foregroundColor(.primary)
+                                    .padding()
+                                    .font(.custom("Avenir Next", size: 17, relativeTo: .title3))
+                                
+                            }
+                            .frame(width: 150, height: 50, alignment: .center)
+                            .overlay(RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color(.white), lineWidth: 1))
+                            .background(Color.init("lightBlue"))
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .shadow(color: .black, radius: 1, x: 1, y: 1)
                             
-                        }
-                        .frame(width: 150, height: 50, alignment: .center)
-                        .overlay(RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color(.white), lineWidth: 1))
-                        .background(Color.init("lightBlue"))
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .shadow(color: .black, radius: 1, x: 1, y: 1)
-                        
-                        .sheet(isPresented: $showLoginForm) {
-                            LoginForm(loginEmail: $loginEmail, password: $password )
+                            .sheet(isPresented: $viewModel.showLoginForm) {
+                                LoginForm(viewModel: viewModel)
+                                
+                            }
                             
-                        }
+                            Spacer()
+                            
+                            Button {
+                                viewModel.Clear()
+                                viewModel.showRegisterForm = true
+                            } label: {
+                                Text("Sing Up")
+                                    .foregroundColor(.primary)
+                                    .bold()
+                                    .padding()
+                                    .font(.custom("Avenir Next", size: 17, relativeTo: .headline))
+                            }
+                            .frame(width: 150, height: 50, alignment: .center)
+                            .overlay(RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color(.white), lineWidth: 1))
+                            .background(Color.init("lightBlue"))
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .shadow(color: .black, radius: 1, x: 1, y: 1)
+                        }.padding()
+                            .sheet(isPresented: $viewModel.showRegisterForm) {
+                                RegisterForm(viewModel: viewModel)
+                            }
+                    }
+                    Button {
                         
-                        Spacer()
+                    } label: {
+                        Text("Continue as a guest")
                         
-                        Button {
-                            showRegisterForm = true
-                        } label: {
-                            Text("Sing Up")
-                                .foregroundColor(.primary)
-                                .bold()
-                                .padding()
-                                .font(.custom("Avenir Next", size: 17, relativeTo: .headline))
-                        }
-                        .frame(width: 150, height: 50, alignment: .center)
-                        .overlay(RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color(.white), lineWidth: 1))
-                        .background(Color.init("lightBlue"))
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .shadow(color: .black, radius: 1, x: 1, y: 1)
                     }.padding()
-                        .sheet(isPresented: $showRegisterForm) {
-                            RegisterForm(loginEmail: $loginEmail, loginPass: $password, passConf: $passConf)
-                        }
+                    
+                }       
+            }
+            .onAppear{
+                NotificationCenter.default.addObserver(forName: Notification.Name("isLogedIn"), object: nil, queue: .main) { (_) in
+                    
+                    self.status = UserDefaults.standard.value(forKey: "isLogedIn") as? Bool ?? false
                 }
-                Button {
-                    
-                } label: {
-                    Text("Continue as a guest")
-                    
-                }.padding()
-                
-            }         
+            }
         }
-        
     }
 }
+
 
 struct Login_Previews: PreviewProvider {
     static var previews: some View {

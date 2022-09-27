@@ -11,11 +11,12 @@ struct LaunchScreen: View {
     @State var isActive = false
     @State var scale = 0.7
     @State var opacity = 0.2
+    
     var body: some View {
-        
         if isActive {
             LoginPage()
-        } else {
+        }
+        else {
             ZStack{
                 Color.white
                     .ignoresSafeArea()

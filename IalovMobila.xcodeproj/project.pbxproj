@@ -8,23 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		751C750228DC681F008A9EDD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 751C750128DC681E008A9EDD /* .gitignore */; };
+		7551A33528DC8460003D59E3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551A33428DC8460003D59E3 /* LoginViewModel.swift */; };
+		7551A33728DCCBBD003D59E3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551A33628DCCBBD003D59E3 /* MainView.swift */; };
+		7551A33B28DCFB17003D59E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7551A33A28DCFB17003D59E3 /* GoogleService-Info.plist */; };
+		75951F1028E2E91700877C46 /* SectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75951F0F28E2E91700877C46 /* SectionsView.swift */; };
+		75951F1228E3007300877C46 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75951F1128E3007300877C46 /* HomeView.swift */; };
 		759CBE0828DAE3D000ABF655 /* IalovMobilaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759CBE0728DAE3D000ABF655 /* IalovMobilaApp.swift */; };
-		759CBE0A28DAE3D000ABF655 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759CBE0928DAE3D000ABF655 /* ContentView.swift */; };
 		759CBE0C28DAE3D100ABF655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759CBE0B28DAE3D100ABF655 /* Assets.xcassets */; };
 		759CBE0F28DAE3D100ABF655 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759CBE0E28DAE3D100ABF655 /* Preview Assets.xcassets */; };
 		759CBE1928DAE63E00ABF655 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759CBE1828DAE63E00ABF655 /* LoginPage.swift */; };
 		759CBE1B28DAED0100ABF655 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759CBE1A28DAED0100ABF655 /* LaunchScreen.swift */; };
+		D84E043CE21C9F6E02BBCFC1 /* Pods_IalovMobila.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399C9E1746783F6BD75A8BB8 /* Pods_IalovMobila.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		399C9E1746783F6BD75A8BB8 /* Pods_IalovMobila.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IalovMobila.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		751C750128DC681E008A9EDD /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		7551A33428DC8460003D59E3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		7551A33628DCCBBD003D59E3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		7551A33A28DCFB17003D59E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		75951F0F28E2E91700877C46 /* SectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsView.swift; sourceTree = "<group>"; };
+		75951F1128E3007300877C46 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		759CBE0428DAE3D000ABF655 /* IalovMobila.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IalovMobila.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759CBE0728DAE3D000ABF655 /* IalovMobilaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IalovMobilaApp.swift; sourceTree = "<group>"; };
-		759CBE0928DAE3D000ABF655 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		759CBE0B28DAE3D100ABF655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		759CBE0E28DAE3D100ABF655 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		759CBE1828DAE63E00ABF655 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		759CBE1A28DAED0100ABF655 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		89AD663F34C047B065B9BCC9 /* Pods-IalovMobila.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IalovMobila.debug.xcconfig"; path = "Target Support Files/Pods-IalovMobila/Pods-IalovMobila.debug.xcconfig"; sourceTree = "<group>"; };
+		F5C957942ED2596DFBBB63D8 /* Pods-IalovMobila.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IalovMobila.release.xcconfig"; path = "Target Support Files/Pods-IalovMobila/Pods-IalovMobila.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,17 +44,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D84E043CE21C9F6E02BBCFC1 /* Pods_IalovMobila.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E655F52D8CD703105C029A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				399C9E1746783F6BD75A8BB8 /* Pods_IalovMobila.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		759CBDFB28DAE3D000ABF655 = {
 			isa = PBXGroup;
 			children = (
 				759CBE0628DAE3D000ABF655 /* IalovMobila */,
 				759CBE0528DAE3D000ABF655 /* Products */,
+				DE116D99AE033ADC9D8EEFE2 /* Pods */,
+				0E655F52D8CD703105C029A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,13 +80,14 @@
 		759CBE0628DAE3D000ABF655 /* IalovMobila */ = {
 			isa = PBXGroup;
 			children = (
+				759CBE0728DAE3D000ABF655 /* IalovMobilaApp.swift */,
 				759CBE1628DAE5ED00ABF655 /* Model */,
 				759CBE1728DAE60000ABF655 /* ViewModels */,
 				759CBE1528DAE5E800ABF655 /* Views */,
-				759CBE0728DAE3D000ABF655 /* IalovMobilaApp.swift */,
-				759CBE0B28DAE3D100ABF655 /* Assets.xcassets */,
 				759CBE0D28DAE3D100ABF655 /* Preview Content */,
 				751C750128DC681E008A9EDD /* .gitignore */,
+				759CBE0B28DAE3D100ABF655 /* Assets.xcassets */,
+				7551A33A28DCFB17003D59E3 /* GoogleService-Info.plist */,
 			);
 			path = IalovMobila;
 			sourceTree = "<group>";
@@ -79,9 +103,11 @@
 		759CBE1528DAE5E800ABF655 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				759CBE0928DAE3D000ABF655 /* ContentView.swift */,
 				759CBE1828DAE63E00ABF655 /* LoginPage.swift */,
 				759CBE1A28DAED0100ABF655 /* LaunchScreen.swift */,
+				7551A33628DCCBBD003D59E3 /* MainView.swift */,
+				75951F0F28E2E91700877C46 /* SectionsView.swift */,
+				75951F1128E3007300877C46 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -96,8 +122,18 @@
 		759CBE1728DAE60000ABF655 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				7551A33428DC8460003D59E3 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DE116D99AE033ADC9D8EEFE2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				89AD663F34C047B065B9BCC9 /* Pods-IalovMobila.debug.xcconfig */,
+				F5C957942ED2596DFBBB63D8 /* Pods-IalovMobila.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,9 +143,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 759CBE1228DAE3D100ABF655 /* Build configuration list for PBXNativeTarget "IalovMobila" */;
 			buildPhases = (
+				57E0B35101E529BA2F855645 /* [CP] Check Pods Manifest.lock */,
 				759CBE0028DAE3D000ABF655 /* Sources */,
 				759CBE0128DAE3D000ABF655 /* Frameworks */,
 				759CBE0228DAE3D000ABF655 /* Resources */,
+				157D99A96DAAB074C0CF5BA7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -159,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				759CBE0F28DAE3D100ABF655 /* Preview Assets.xcassets in Resources */,
+				7551A33B28DCFB17003D59E3 /* GoogleService-Info.plist in Resources */,
 				751C750228DC681F008A9EDD /* .gitignore in Resources */,
 				759CBE0C28DAE3D100ABF655 /* Assets.xcassets in Resources */,
 			);
@@ -166,14 +205,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		157D99A96DAAB074C0CF5BA7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IalovMobila/Pods-IalovMobila-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IalovMobila/Pods-IalovMobila-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IalovMobila/Pods-IalovMobila-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57E0B35101E529BA2F855645 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IalovMobila-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		759CBE0028DAE3D000ABF655 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75951F1028E2E91700877C46 /* SectionsView.swift in Sources */,
+				75951F1228E3007300877C46 /* HomeView.swift in Sources */,
 				759CBE1B28DAED0100ABF655 /* LaunchScreen.swift in Sources */,
 				759CBE1928DAE63E00ABF655 /* LoginPage.swift in Sources */,
-				759CBE0A28DAE3D000ABF655 /* ContentView.swift in Sources */,
+				7551A33528DC8460003D59E3 /* LoginViewModel.swift in Sources */,
+				7551A33728DCCBBD003D59E3 /* MainView.swift in Sources */,
 				759CBE0828DAE3D000ABF655 /* IalovMobilaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +381,7 @@
 		};
 		759CBE1328DAE3D100ABF655 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89AD663F34C047B065B9BCC9 /* Pods-IalovMobila.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -309,8 +394,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -327,6 +411,7 @@
 		};
 		759CBE1428DAE3D100ABF655 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5C957942ED2596DFBBB63D8 /* Pods-IalovMobila.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -339,8 +424,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
